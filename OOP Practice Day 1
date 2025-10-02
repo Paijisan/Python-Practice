@@ -1,0 +1,25 @@
+class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+        else:
+            print("Insufficient funds")
+
+    def __str__(self):
+        return f"{self.owner} has ${self.balance} funds"
+
+
+# Example usage
+acc = BankAccount("Paige", 100)
+print(acc)           # Paige has $100 funds
+acc.deposit(50)
+print(acc)           # Paige has $150 funds
+acc.withdraw(200)    # prints "Insufficient funds"
+print(acc)           # Paige has $150 funds
